@@ -22,7 +22,8 @@ class Volunteer {
   }
 
   getActiveVolunteerList(callback) {
-    let selectQuery = "SELECT * FROM volunteers_list l,volunteers_list_active a where l.belt_no=a.belt_no;";
+    let selectQuery =
+      "SELECT * FROM volunteers_list l,volunteers_list_active a where l.belt_no=a.belt_no;";
     this.db.query(selectQuery, (err, data) => {
       if (err) {
         console.error(err);
@@ -33,8 +34,9 @@ class Volunteer {
     });
   }
 
-  getTrashVolunteerList(callback){
-    let selectQuery = "SELECT * FROM volunteers_list l,volunteers_list_trash t where l.belt_no=t.belt_no;";
+  getTrashVolunteerList(callback) {
+    let selectQuery =
+      "SELECT * FROM volunteers_list l,volunteers_list_trash t where l.belt_no=t.belt_no;";
     this.db.query(selectQuery, (err, data) => {
       if (err) {
         console.error(err);
@@ -44,8 +46,6 @@ class Volunteer {
       callback(data);
     });
   }
-
-
 
   insert(VolunteerDetailJson) {
     console.log(VolunteerDetailJson);

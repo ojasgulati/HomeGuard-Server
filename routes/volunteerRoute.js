@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { volunteer } = require("../database");
+const _ = require("lodash");
 
-router.get("/volunteer_list", (res, req) => {
-  volunteer.getActiveVolunteerList(function(data) {
+router.post("/volunteerlist", (res, req) => {
+  volunteer.getActiveVolunteerList(res.body, function(data) {
     req.send(data);
   });
 });

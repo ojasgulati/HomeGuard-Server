@@ -1,9 +1,11 @@
 ConnectionDB = require("./connection");
 Volunteer = require("./volunteer");
+AttandanceSheet = require("./attendanceSheet");
 
 connectionDB = new ConnectionDB("root", "mysql");
 connectionDB.makeConnection();
 
 volunteer = new Volunteer(connectionDB.getDB());
 //volunteer.check();
-module.exports = { volunteer };
+attandanceSheet = new AttandanceSheet(connectionDB.getDB());
+module.exports = { volunteer, attandanceSheet };
